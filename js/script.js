@@ -1,6 +1,7 @@
 window.onload = function(){
 
-    //var allLines = document.querySelectorAll('.lines');
+    var allLines = document.querySelectorAll('.lines');
+    var allDotLines = document.querySelectorAll('.dotlines');
     var allDots = document.querySelectorAll('.dots');
     var showcase = document.getElementById('showcase');
 
@@ -14,9 +15,13 @@ window.onload = function(){
         });
     });
 
+    allDotLines.forEach((item)=>{
+        item.addEventListener("click",function(event){
+            show(event);
+        });
+    });
+
     function show(clicked){
-        showcase.offsetTop = clicked.target.offsetTop;
-        showcase.offsetLeft = clicked.target.offsetLeft;
         showcase.innerText = clicked.target.id;
         console.log(clicked.target);
         showcase.innerHTML.fontcolor(clicked.target.style.fill);
